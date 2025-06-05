@@ -4,171 +4,223 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Perfil del Conductor - Turitrans</title>
+    <title>Turitrans · Perfil del Conductor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
     <style>
-        /* Reset y base */
+        :root {
+            --bg-dark: #0e1a2b;
+            --blue: #134074;
+            --accent: #f9a03f;
+            --white: #ffffff;
+            --gray-light: #f5f7fa;
+            --gray: #d1d5db;
+            --gray-dark: #4b5563;
+            --radius: 14px;
+            --shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+            --transition: 0.3s ease;
+            --font: 'Inter', sans-serif;
+        }
+
         * {
+            margin: 0;
+            padding: 0;
             box-sizing: border-box;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            background: #e0e7ff;
-            /* Fondo suave */
-            color: #6c6c6c;
+            font-family: var(--font);
+            background: linear-gradient(145deg, #0b1e3f, #0e1a2b);
+            color: var(--gray-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            max-width: 430px;
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+        }
+
+        .card-header {
+            background-color: #d8d9db;
+            /* Fondo blanco para dar protagonismo al logo */
+            padding: 1.5rem 1rem;
             display: flex;
             justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
+            border-bottom: 2px solid var(--blue);
         }
 
-        a {
-            color: #1ab1e0;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        /* Tarjeta */
-        .card {
-            background: #fff;
-            border-radius: 16px;
-            box-shadow: 0 8px 24px rgb(0 0 0 / 0.15);
-            width: 100%;
-            max-width: 400px;
-            overflow: hidden;
-            padding: 0 0 24px 0;
-        }
-
-        .highlight {
-            color: #005694;
-        }
-
-        /* Logo */
-        .logo-container {
-            background: rgb(0 0 0 / 0.1);
-            padding: 20px 0;
-            text-align: center;
-        }
-
-        .logo-container img {
-            max-width: 150px;
+        .card-header img {
+            width: 200px;
+            /* Aumentado el tamaño */
+            max-width: 100%;
             height: auto;
-            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+            filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
         }
 
-        /* Contenido principal */
-        .content {
-            padding: 20px 30px;
+
+        .card-body {
+            padding: 2rem;
+            display: grid;
+            gap: 2rem;
         }
 
-        /* Sección conductor */
-        .driver-section {
+        .driver-info {
             text-align: center;
-            margin-bottom: 30px;
         }
 
-        .driver-name {
-            font-size: 1.8rem;
+        .driver-info h1 {
+            font-size: 1.9rem;
+            font-weight: 800;
+            color: var(--blue);
+            margin-bottom: 0.3rem;
+        }
+
+        .driver-info .title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--gray-dark);
+            margin-bottom: 1.2rem;
+        }
+
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            background-color: var(--accent);
+            color: var(--white);
+            padding: 0.8rem 2rem;
             font-weight: 700;
-            margin: 0;
-            color: #066eba;
+            font-size: 1rem;
+            border-radius: 40px;
+            text-decoration: none;
+            transition: all var(--transition);
+            box-shadow: 0 6px 20px rgba(249, 160, 63, 0.5);
         }
 
-        .driver-title {
-            font-size: 1.1rem;
-            color: #666;
-            margin: 6px 0 16px 0;
+        .whatsapp-btn:hover {
+            background-color: #f88e1a;
+            transform: scale(1.05);
         }
 
-        .contact-link {
+        .whatsapp-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        .section {
+            background-color: var(--gray-light);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .section h2 {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--blue);
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--accent);
             display: inline-block;
-            background: #25D366;
-            color: #fff;
-            padding: 12px 28px;
-            border-radius: 24px;
-            font-weight: 600;
-            box-shadow: 0 4px 8px rgb(37 211 102 / 0.4);
-            transition: background-color 0.3s ease;
+            padding-bottom: 0.3rem;
         }
 
-        .contact-link:hover {
-            background-color: #1ebe57;
-        }
-
-        /* Secciones info */
-        .info-section {
-            font-size: 1.1rem;
-            color: #333;
-            line-height: 1.5;
-            margin-bottom: 24px;
-            border-left: 4px solid #066eba;
-            padding-left: 16px;
+        .section p {
+            margin: 0.5rem 0;
             font-weight: 600;
         }
 
-        .info-section strong {
-            display: block;
-            margin-bottom: 8px;
-            color: #066eba;
+        .section p span {
             font-weight: 700;
-            font-size: 1.3rem;
+            color: var(--accent);
+            display: inline-block;
+            width: 100px;
         }
 
-        /* Footer */
-        footer {
-            max-width: 400px;
-            margin: 20px auto 0;
-            font-size: 0.85rem;
+        .card-footer {
+            background-color: var(--blue);
             text-align: center;
-            color: #555;
+            padding: 1rem;
+            color: var(--gray);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        @media (max-width: 500px) {
+            .card-body {
+                padding: 1.5rem;
+            }
+
+            .driver-info h1 {
+                font-size: 1.6rem;
+            }
+
+            .whatsapp-btn {
+                padding: 0.7rem 1.8rem;
+                font-size: 0.95rem;
+            }
         }
     </style>
 </head>
 
 <body>
 
-    <div class="card" role="main" aria-label="Perfil del conductor y vehículo">
-        <div class="logo-container">
+    <main class="card" role="main" aria-label="Perfil del conductor Turitrans">
+        <header class="card-header">
             <img src="./Logo Turitrans.png" alt="Logo Turitrans" />
-        </div>
+        </header>
 
-        <div class="content">
-
-            <section class="driver-section" aria-label="Información del conductor">
-                <h1 class="driver-name">Fredy Galindo</h1>
-                <p class="driver-title">Conductor Profesional</p>
-                <a href="https://wa.me/573124480874" target="_blank" rel="noopener noreferrer" class="contact-link"
-                    aria-label="Contactar a Jeisson Avendaño por WhatsApp">
-                    📲 Contactar por WhatsApp
+        <div class="card-body">
+            <section class="driver-info">
+                <p class="title">Tu conductor asignado es:</p>
+                <h1>Fredy Galindo</h1>
+                <br>
+                <a href="https://wa.me/573124480874" class="whatsapp-btn" target="_blank" rel="noopener noreferrer">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M20.52 3.48A11.94 11.94 0 0012 0C5.373 0 0 5.372 0 12c0 2.127.56 4.11 1.528 5.84L0 24l6.409-1.669A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12a11.94 11.94 0 00-3.48-8.52zm-8.5 16.5a9.14 9.14 0 01-4.91-1.45l-.35-.21-3.27.83.87-3.18-.22-.34A9.077 9.077 0 013.5 12c0-5.04 4.1-9.15 9.15-9.15 2.44 0 4.72.95 6.44 2.67a9.048 9.048 0 012.71 6.46c0 5.04-4.1 9.15-9.15 9.15zm4.8-6.92c-.26-.13-1.54-.76-1.78-.85-.23-.09-.4-.13-.57.13-.16.26-.63.85-.77 1.02-.14.17-.28.19-.53.06a7.32 7.32 0 01-2.15-1.33 8.11 8.11 0 01-1.5-1.86c-.16-.27-.02-.41.12-.54.13-.13.3-.33.45-.5.15-.17.2-.29.3-.48.1-.19.05-.35-.03-.48-.08-.13-.57-1.37-.78-1.87-.2-.49-.4-.42-.57-.43-.15 0-.33 0-.5 0-.17 0-.45.07-.68.33a2.82 2.82 0 00-.97.94c-.32.5-1.3 1.26-1.3 3.06 0 1.8 1.33 3.54 1.52 3.78.19.23 2.62 4.04 6.36 5.66a11.74 11.74 0 004.52.73c1.72 0 3.35-.87 4.56-2.22 1.2-1.35 1.57-3.15 1.57-3.42 0-.28-.23-.42-.5-.55z" />
+                    </svg>
+                    Contactar por WhatsApp
                 </a>
             </section>
-            <section class="info-section" aria-label="Información de la ruta y horario">
-                <strong>Detalle del Servicio</strong>
-                <span class="highlight">Viajero:</span>Juan Perez<br>
-                <span class="highlight">Origen:</span> Siberia <br>
-                <span class="highlight">Destino:</span> Calle 93a #19-25<br />
-                Hora: 15:30
+
+            <section class="section">
+                <h2>Detalle del Servicio</h2>
+                <p><span>Viajero:</span> Juan Perez</p>
+                <p><span>Origen:</span> Siberia</p>
+                <p><span>Destino:</span> Calle 93a #19-25</p>
+                <p><span>Hora:</span> 15:30</p>
             </section>
 
-            <section class="info-section" aria-label="Información del vehículo">
-                <strong>Vehículo</strong>
-                Camioneta Duster<br />
-                Placa: WNK 662<br />
-                Año: 2025<br />
+            <section class="section">
+                <h2>Vehículo Asignado</h2>
+                <p><span>Modelo:</span> Camioneta Duster</p>
+                <p><span>Placa:</span> WNK 662</p>
             </section>
-
-
-            <footer>
-                TURITRANS S.A.S - NIT 901.398.167 - © 2025 Todos los derechos reservados.
-            </footer>
         </div>
-    </div>
+
+        <footer class="card-footer">
+            TURITRANS S.A.S · NIT 901.398.167 · © 2025 Todos los derechos reservados.
+        </footer>
+    </main>
 
 </body>
 
 </html>
+</body>
+
+</html>
+
