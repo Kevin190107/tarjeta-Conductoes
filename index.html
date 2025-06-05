@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Perfil del Conductor - Turitrans</title>
+    <style>
+        /* Reset y base */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background: #e0e7ff;
+            /* Fondo suave */
+            color: #6c6c6c;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        a {
+            color: #1ab1e0;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Tarjeta */
+        .card {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgb(0 0 0 / 0.15);
+            width: 100%;
+            max-width: 400px;
+            overflow: hidden;
+            padding: 0 0 24px 0;
+        }
+
+        .highlight {
+            color: #005694;
+        }
+
+        /* Logo */
+        .logo-container {
+            background: rgb(0 0 0 / 0.1);
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .logo-container img {
+            max-width: 150px;
+            height: auto;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+        }
+
+        /* Contenido principal */
+        .content {
+            padding: 20px 30px;
+        }
+
+        /* Sección conductor */
+        .driver-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .driver-name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0;
+            color: #066eba;
+        }
+
+        .driver-title {
+            font-size: 1.1rem;
+            color: #666;
+            margin: 6px 0 16px 0;
+        }
+
+        .contact-link {
+            display: inline-block;
+            background: #25D366;
+            color: #fff;
+            padding: 12px 28px;
+            border-radius: 24px;
+            font-weight: 600;
+            box-shadow: 0 4px 8px rgb(37 211 102 / 0.4);
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-link:hover {
+            background-color: #1ebe57;
+        }
+
+        /* Secciones info */
+        .info-section {
+            font-size: 1.1rem;
+            color: #333;
+            line-height: 1.5;
+            margin-bottom: 24px;
+            border-left: 4px solid #066eba;
+            padding-left: 16px;
+            font-weight: 600;
+        }
+
+        .info-section strong {
+            display: block;
+            margin-bottom: 8px;
+            color: #066eba;
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+
+        /* Footer */
+        footer {
+            max-width: 400px;
+            margin: 20px auto 0;
+            font-size: 0.85rem;
+            text-align: center;
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card" role="main" aria-label="Perfil del conductor y vehículo">
+        <div class="logo-container">
+            <img src="./Logo Turitrans.png" alt="Logo Turitrans" />
+        </div>
+
+        <div class="content">
+
+            <section class="driver-section" aria-label="Información del conductor">
+                <h1 class="driver-name">Jeisson Avendaño</h1>
+                <p class="driver-title">Conductor Profesional</p>
+                <a href="https://wa.me/573124480874" target="_blank" rel="noopener noreferrer" class="contact-link"
+                    aria-label="Contactar a Jeisson Avendaño por WhatsApp">
+                    📲 Contactar por WhatsApp
+                </a>
+            </section>
+            <section class="info-section" aria-label="Información de la ruta y horario">
+                <strong>Detalle del Servicio</strong>
+                <span class="highlight">Origen:</span> Siberia <br>
+                <span class="highlight">Destino:</span> Calle 93a #19-25<br />
+                Hora: 15:30
+            </section>
+
+            <section class="info-section" aria-label="Información del vehículo">
+                <strong>Vehículo</strong>
+                Camioneta Duster<br />
+                Placa: WNK 662<br />
+                Año: 2025<br />
+            </section>
+
+
+            <footer>
+                TURITRANS S.A.S - NIT 901.398.167 - © 2025 Todos los derechos reservados.
+            </footer>
+        </div>
+    </div>
+
+</body>
+
+</html>
